@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mykhailo Trush Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="scripts/script.js" defer></script>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-offset="0" tabindex="0">
+
+  <!-- Navigation -->
+  <nav id="navbar-main" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Mykhailo Trush</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#work">Work Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#interests">Interests</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home" class="bg-primary text-white text-center py-5">
+    <div class="container">
+      <img src="images/profile.jpg" alt="Profile Picture" class="rounded-circle mb-4 profile-pic" style="width: 150px;">
+      <h1>Mykhailo Trush</h1>
+      <p>ICT Student | Computing & Data Analytics | Technological University Dublin</p>
+      <button class="btn btn-secondary mt-3" onclick="scrollToSection('about')">Learn More About Me</button>
+    </div>
+  </header>
+
+  <!-- Carousel Section -->
+  <section id="carousel" class="py-5">
+    <div class="container">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/slider1.jpg" class="d-block w-100" alt="Slider Image 1">
+          </div>
+          <div class="carousel-item">
+            <img src="images/slider2.jpg" class="d-block w-100" alt="Slider Image 2">
+          </div>
+          <div class="carousel-item">
+            <img src="images/slider3.jpg" class="d-block w-100" alt="Slider Image 3">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-5 bg-light text-center">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        I am a motivated ICT student at Technological University Dublin, pursuing a BSc Honours in Computing with IT Management. 
+        I have strong interpersonal skills and am seeking a work placement in information security, computer networking, or DevOps.
+      </p>
+      <ul class="list-unstyled text-start mx-auto" style="max-width: 600px;">
+        <li><b>Date of Birth:</b> 2nd July 2000</li>
+        <li><b>Phone:</b> +353 83 8760561</li>
+        <li><b>Email:</b> <a href="mailto:m.trush@ukr.net">m.trush@ukr.net</a></li>
+        <li><b>LinkedIn:</b> <a href="https://ie.linkedin.com/in/michael-trush">ie.linkedin.com/in/michael-trush</a></li>
+      </ul>
+      <!-- Resume Download Button -->
+      <div class="mt-4">
+        <a href="CV/MykhailoTrushCV2024.pdf" class="btn btn-primary" download>
+          Download My Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-5">
+    <div class="container">
+      <h2>Education</h2>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <b>BSc Honours in Computing with IT Management</b><br>
+          Technological University Dublin (2020 – Present)<br>
+          <i>Modules include IT Scripting, Web Development, Database Technologies, and Network Fundamentals</i>
+        </li>
+        <li class="list-group-item">
+          <b>Leaving Certificate</b><br>
+          St. Michael’s College, Dublin (2017-2020)
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-5 bg-light">
+    <div class="container">
+      <h2>Significant Projects</h2>
+      <!-- MQTT Messaging System for Bus Location -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">MQTT Messaging System for Bus Location</h5>
+          <p class="card-text">
+            A collaborative project that developed a robust and efficient messaging platform for tracking and managing bus locations in real-time using the MQTT protocol.
+          </p>
+          <p><b>Technologies:</b> JavaScript, HTML, CSS, MySQL, MQTT Broker (Mosquitto), Git, Docker, Azure DevOps</p>
+        </div>
+      </div>
+      <!-- Information Management Strategy Exercise -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Information Management Strategy Exercise</h5>
+          <p class="card-text">
+            Conducted a comprehensive strategy analysis for a small organization, including PESTLE analysis, stakeholder analysis, IT risk management, and sustainability recommendations aligned with UN SDGs.
+          </p>
+          <p><b>Key Deliverables:</b> 20-page report with KPIs and strategic recommendations.</p>
+          <p><b>Technologies:</b> PESTLE Analysis, Business Model Canvas, Risk Management Frameworks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-5">
+    <div class="container">
+      <h2>IT Skills</h2>
+      <ul>
+        <li>Proficient in Python, JavaScript, HTML5, CSS, and SQL</li>
+        <li>Experienced in database schema design and administration</li>
+        <li>Knowledgeable in cryptographic algorithms and protocols</li>
+        <li>Familiar with Azure, AWS, and ITIL service management</li>
+        <li>Experience with networking tools and router configuration</li>
+        <li>Proficient in Windows and Linux system administration</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Work Experience Section -->
+  <section id="work" class="py-5 bg-light">
+    <div class="container">
+      <h2>Work Experience</h2>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Migrant Service Assistant</h5>
+          <p><b>International Organization for Migration (IOM), Dublin</b> (June 2022 – September 2022)</p>
+          <p>
+            Assisted migrants by providing accurate information, organizing files, and maintaining data accuracy 
+            while adhering to IOM service standards. Suggested improvements to enhance service efficiency.
+          </p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Election Commission Member</h5>
+          <p><b>Embassy of Ukraine, Dublin</b> (March 2019 – April 2019)</p>
+          <p>
+            Organized and conducted presidential elections for Ukrainian citizens in Ireland, ensuring transparency 
+            and compliance with legal standards.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interests Section -->
+  <section id="interests" class="py-5">
+    <div class="container">
+      <h2>Interests</h2>
+      <ul>
+        <li>Certified scuba diver and solo gym enthusiast</li>
+        <li>Snowboarding</li>
+        <li>Volunteering with consular services at the Embassy of Ukraine in Ireland</li>
+        <li>Participating in cultural events like the International Diplomatic Charity Bazaar</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button class="btn btn-primary position-fixed bottom-0 end-0 m-4" onclick="scrollToTop()">Back to Top</button>
+
+</body>
+</html>
