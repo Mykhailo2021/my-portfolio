@@ -21,13 +21,15 @@ header {
   padding: 3rem 0; /* Adjust padding to bring content closer */
 }
 
+/* Hero Section (Header) */
 #home {
   position: relative;
   padding-top: 180px; /* Separate from navbar */
   padding-bottom: 50px;
-  background-color: #f8f9fa; /* Default light background */
-  color: #343a40; /* Default text color */
+  background-color: #6c9eed !important; /* Muted blue */
+  color: #ffffff;
 }
+
 
 #home h1 {
   margin-top: 50px; /* Adjust spacing below the profile picture */
