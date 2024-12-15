@@ -1,0 +1,125 @@
+/* Certificates Modal Specific Styles */
+.certificates-modal .modal-content {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.certificates-modal .modal-header {
+  border-bottom: 1px solid #444;
+  padding: 15px;
+}
+
+.certificates-modal .modal-title {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.certificates-modal .modal-body {
+  padding: 20px;
+}
+
+.certificates-grid .certificate-card {
+  background-color: #353535;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.certificates-grid .certificate-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.certificates-grid .certificate-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.certificates-grid .certificate-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.certificates-grid .certificate-card:hover .certificate-image {
+  transform: scale(1.1);
+}
+
+.certificates-grid .certificate-info {
+  padding: 15px;
+  background-color: #3a3a3a;
+}
+
+.certificates-grid .certificate-info h6 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.certificates-grid .certificate-info .certificate-issuer,
+.certificates-grid .certificate-info .certificate-date {
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.certificates-modal .modal-footer {
+  border-top: 1px solid #444;
+  background-color: #2c2c2c;
+}
+
+/* Detailed View Styles */
+.certificates-modal .certificate-details {
+  background-color: #353535;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.certificates-modal .certificate-details h4 {
+  color: #ffcc00;
+  margin-bottom: 15px;
+}
+
+.certificates-modal .certificate-details p {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.certificates-modal .certificate-details .btn-download {
+  background-color: #ffcc00;
+  color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.certificates-modal .certificate-details .btn-download:hover {
+  background-color: #ffd633;
+}
+
+.certificates-modal .modal-dialog-scrollable .modal-body {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #444 #222; /* Thumb and track color */
+}
+
+.certificates-modal .modal-dialog-scrollable .modal-body::-webkit-scrollbar {
+  width: 8px; /* Thin scrollbar */
+}
+
+.certificates-modal .modal-dialog-scrollable .modal-body::-webkit-scrollbar-track {
+  background: #222; /* Dark track background */
+}
+
+.certificates-modal .modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb {
+  background-color: #444; /* Dark thumb color */
+  border-radius: 4px; /* Rounded thumb */
+}
+
+.certificates-modal .modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Slightly lighter on hover */
+}

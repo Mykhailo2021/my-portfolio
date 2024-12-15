@@ -1,0 +1,327 @@
+/* Section Layout */
+.education-work-section {
+  position: relative;
+  padding: 50px 0;
+  overflow: hidden;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Timeline Line */
+.timeline-line {
+  position: absolute;
+  width: 4px;
+  background-color: #ffcc00;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+/* Timeline Item Base Styles */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  opacity: 0;
+  scale: 0.97;
+  filter: blur(2px);
+  transition: 
+    opacity 2s cubic-bezier(0.4, 0, 0.2, 1), 
+    transform 2s cubic-bezier(0.4, 0, 0.2, 1),
+    scale 2s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  will-change: opacity, transform, scale, filter;
+  z-index: 10;
+}
+
+/* Dot Positioning */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #ffcc00;
+  border-radius: 50%;
+  z-index: 2;
+  border: 4px solid #121212;
+  box-shadow: 
+    0 0 10px rgba(255,204,0,0.5),
+    0 0 15px rgba(255,204,0,0.3);
+}
+
+.timeline-item.left {
+  left: 0;
+  transform: translateX(-80px);
+  padding-right: 80px;
+}
+
+.timeline-item.left::before {
+  right: 25px;
+}
+
+.timeline-item.right {
+  left: 50%;
+  transform: translateX(80px);
+  padding-left: 80px;
+}
+
+.timeline-item.right::before {
+  left: 25px;
+}
+
+/* Visibility Animation */
+.timeline-item.visible {
+  opacity: 1;
+  scale: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+/* Alternate Positioning */
+.timeline-item:nth-child(even) {
+  margin-top: 100px;
+}
+
+.timeline-item:nth-child(odd) {
+  margin-top: -50px;
+}
+
+/* Timeline Content Styles */
+.timeline-content {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: 
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+
+/* Year Label */
+.year {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+/* Circle Image */
+.circle-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 15px;
+  transition: transform 0.3s ease;
+}
+
+.circle-image:hover {
+  transform: scale(1.1);
+}
+
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Left Side: Move everything to the right */
+.timeline-item.left .timeline-content-details {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.timeline-item.left .year {
+  left: auto;
+  text-align: right;
+}
+
+.timeline-item.left .timeline-content h3 {
+  text-align: right;
+}
+
+.timeline-item.left .timeline-content p {
+  text-align: right;
+}
+
+.timeline-item.left .timeline-content .btn {
+  margin: 15px 0 0 auto; /* Align button to the right */
+}
+
+/* Right Side: Move everything to the left */
+.timeline-item.right .timeline-content-details {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.timeline-item.right .year {
+  left: 0px;
+  text-align: left;
+}
+
+.timeline-item.right .timeline-content h3 {
+  text-align: left;
+}
+
+.timeline-item.right .timeline-content p {
+  text-align: left;
+}
+
+.timeline-item.right .timeline-content .btn {
+  margin: 15px 0 0 0; /* Align button to the left */
+}
+
+/* Default Content Text Styles (fallback) */
+.timeline-content h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  color: #ffffff;
+}
+
+/* Timeline Content Details */
+.timeline-content-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Ensure full width */
+}
+
+/* Button Styles */
+.timeline-content .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 40px;
+  background-color: transparent;
+  border: 2px solid #ffcc00;
+  color: #ffcc00;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 
+    background-color 0.3s ease, 
+    color 0.3s ease, 
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.timeline-content .btn:hover {
+  background-color: #ffcc00;
+  color: #121212;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(255,204,0,0.2);
+}
+
+.circle-image {
+  margin: 10px 0; /* Reduced vertical margin */
+}
+
+.timeline-item:nth-child(odd) {
+  margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 30px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 60px;
+  }
+
+  .timeline-item.left::before,
+  .timeline-item.right::before {
+    left: 0;
+    right: auto;
+  }
+
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd) {
+    margin-top: 50px;
+  }
+
+  /* Reset alignments for mobile */
+  .timeline-item.left .timeline-content-details,
+  .timeline-item.right .timeline-content-details {
+    text-align: center;
+    align-items: center;
+  }
+
+  .timeline-item.left .timeline-content h3,
+  .timeline-item.right .timeline-content h3,
+  .timeline-item.left .timeline-content p,
+  .timeline-item.right .timeline-content p {
+    text-align: center;
+  }
+
+  .timeline-item.left .timeline-content .btn,
+  .timeline-item.right .timeline-content .btn {
+    margin: 15px auto 0; /* Center buttons on mobile */
+  }
+}
+
+/* Year Label */
+.year {
+  font-size: 1.2rem; /* Increased from the default */
+  position: relative;
+  color: #ffcc00;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px; /* Push it a bit lower from the top */
+  margin-bottom: -20px; /* Add space below */
+}
+
+/* Buttons */
+
+.timeline-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.timeline-buttons .btn {
+  flex: 1;
+  max-width: 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 576px) {
+  .timeline-buttons {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .timeline-buttons .btn {
+      width: 100%;
+      max-width: none;
+      margin-bottom: 10px;
+  }
+}

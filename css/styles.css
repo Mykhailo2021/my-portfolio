@@ -1,0 +1,99 @@
+body {
+  background-color: #222;
+  color: #fff;
+  overflow-x: hidden;
+  padding-right: 0 !important; /* Force no right padding */
+}
+
+html {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent Bootstrap's modal from adding padding */
+body.modal-open {
+  overflow: hidden;
+  padding-right: 0 !important;
+}
+
+/* Remove any right padding added by Bootstrap */
+body.modal-open::before,
+body.modal-open::after {
+  content: none !important;
+}
+
+.btn-close {
+  background-image: none !important;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.7;
+  color: #ffffff;
+  transition: 
+      all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+      transform 0.2s ease;
+  position: relative;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.btn-close::before,
+.btn-close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 14px;
+  background-color: #ffffff;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: background-color 0.3s ease;
+}
+
+.btn-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.btn-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+  transform: scale(1.1) rotate(90deg);
+  color: #ffcc00;
+}
+
+.btn-close:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.btn-close:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

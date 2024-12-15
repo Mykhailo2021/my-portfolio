@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mykhailo Trush - Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/Navbar.css">
+    <link rel="stylesheet" href="css/OffcanvasNavigationMenu.css">
+    <link rel="stylesheet" href="css/ContactModal.css">
+    <link rel="stylesheet" href="css/HeroSection.css">
+    <link rel="stylesheet" href="css/ParallaxSeparator.css">
+    <link rel="stylesheet" href="css/About.css">
+    <link rel="stylesheet" href="css/Hobbies.css">
+    <link rel="stylesheet" href="css/SkillsUndCerts.css">
+    <link rel="stylesheet" href="css/CertificatesModal.css">
+    <link rel="stylesheet" href="css/Projects.css">
+    <link rel="stylesheet" href="css/ProjectModals.css">
+    <link rel="stylesheet" href="css/Education&Work.css">
+    <link rel="stylesheet" href="css/TimelineGoogleMap.css">
+    <link rel="stylesheet" href="css/ContactFooter.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/BackToTop.css">
+    <link rel="stylesheet" href="css/MusicModal.css">
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts/script.js" defer></script>
+</head>
+
+<body class="bg-dark">
+
+    <!-- Background Element -->
+    <div class="navbar-background"></div>
+
+    <!-- Navbar -->
+    <nav class="custom-navbar">
+        <div class="navbar-content">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+            
+            <div class="navbar-buttons">
+                <button class="music-button" id="musicButton">
+                    <i class="fas fa-music"></i> Music
+                </button>
+                
+                <button class="contact-button" id="contactButton">
+                    Contact
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navbar -->
+
+    <!-- Music Modal -->
+    <div class="modal fade" id="musicModal" tabindex="-1" aria-labelledby="musicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content music-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="musicModalLabel">Music Playlist</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="music-player">
+                        <audio id="musicPlayer" src=""></audio>
+                        <div class="current-track-info">
+                            <img id="trackImage" src="" alt="Track Image">
+                            <div class="track-details">
+                                <h6 id="trackTitle">Select a Track</h6>
+                                <p id="trackArtist"></p>
+                            </div>
+                        </div>
+                        <div class="music-controls">
+                            <button id="prevTrack" class="btn btn-control">
+                                <i class="fas fa-step-backward"></i>
+                            </button>
+                            <button id="playPauseBtn" class="btn btn-play">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button id="nextTrack" class="btn btn-control">
+                                <i class="fas fa-step-forward"></i>
+                            </button>
+                            <button id="repeatBtn" class="btn btn-control">
+                                <i class="fas fa-redo"></i>
+                            </button>
+                        </div>
+                        <div class="playlist">
+                            <!-- Playlist items will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Music Modal -->
+
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas-menu" id="offcanvasMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Navigation</h5>
+            <button type="button" class="btn-close" id="offcanvasClose" aria-label="Close">&times;</button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav">
+                <li><a class="nav-link" href="#home">Home</a></li>
+                <li><a class="nav-link" href="#about-section">About</a></li>
+                <li><a class="nav-link" href="#skills-certificates-section">Skills and Certificates</a></li>
+                <li><a class="nav-link" href="#projects-section">Projects</a></li>
+                <li><a class="nav-link" href="#education-work-section">Education and Work Experience</a></li>
+                <li><a class="nav-link" href="#contact-footer">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End of Offcanvas Menu -->
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contact Me</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="contactForm">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Contact Modal -->
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome, I'm Mykhailo Trush</h1>
+            <h2 id="changingText"></h2> <!-- Changing text -->
+        </div>
+    </header>
+    <!-- End of Hero Section -->
+
+    <!-- Parallax Separator #1 -->
+    <div id="about-section" class="parallax-separator">
+        <a href="#about" class="parallax-title">About Me</a>
+    </div>
+    <!-- End of Parallax Separator #1-->
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section py-5 bg-dark text-white">
+        <div class="container d-flex flex-column flex-md-row align-items-center">
+            <!-- Left: Profile Image -->
+            <div class="about-image text-center mb-4 mb-md-0">
+                <img src="images/profile.jpg" alt="Profile Picture" class="rounded-circle about-img" />
+                <!-- Social Media Icons -->
+                <div class="social-icons mt-3">
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook fa-2x"></i></a>
+                </div>
+            </div>
+            <!-- Right: About Content -->
+            <div class="about-content ms-md-5 text-center text-md-start">
+                <p>
+                    Motivated ICT student at Technological University Dublin (BSc in Computing with IT Management and Data Analytics) 
+                    with strong interpersonal skills seeking a Dublin-based work placement position (February – June 2024) in 
+                    information security, computer networking, or DevOps.
+                </p>
+                <div class="about-buttons mt-4">
+                    <button class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#hobbiesModal">
+                        Hobbies & Interests
+                    </button>
+                    <a href="CV/MykhailoTrushCV2024.pdf" class="btn btn-outline-primary" download>Download My CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of About Me Section -->
+
+    <!-- Hobbies & Interests Modal -->
+    <div class="modal fade" id="hobbiesModal" tabindex="-1" aria-labelledby="hobbiesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="hobbiesModalLabel">Hobbies & Interests</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <i class="fas fa-swimmer fa-3x text-primary"></i>
+                            <h6 class="mt-2 hobby-title">Scuba Diving</h6>
+                            <p class="hobby-description">Certified scuba diver with a passion for exploring underwater worlds.</p>
+                        </div>
+                        <div class="col-4">
+                            <i class="fas fa-snowflake fa-3x text-primary"></i>
+                            <h6 class="mt-2 hobby-title">Snowboarding</h6>
+                            <p class="hobby-description">Enjoys snowboarding in challenging terrains and scenic locations.</p>
+                        </div>
+                        <div class="col-4">
+                            <i class="fas fa-dumbbell fa-3x text-primary"></i>
+                            <h6 class="mt-2 hobby-title">Fitness</h6>
+                            <p class="hobby-description">Solo gym enthusiast dedicated to staying fit and active.</p>
+                        </div>
+                    </div>
+                    <div class="row text-center mt-4">
+                        <div class="col-4">
+                            <i class="fas fa-gamepad fa-3x text-primary"></i>
+                            <h6 class="mt-2 hobby-title">Gaming</h6>
+                            <p class="hobby-description">Exploring different games to fuel creativity.</p>
+                        </div>
+                        <div class="col-4">
+                            <i class="fas fa-plane fa-3x text-primary"></i>
+                            <h6 class="mt-2 hobby-title">Traveling</h6>
+                            <p class="hobby-description">Passionate about exploring new cultures and destinations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End to Hobbies & Interests Modal -->
+
+    <!-- Parallax Separator for Skills and Certificates -->
+    <div id="skills-certificates-section" class="parallax-separator">
+        <a href="#skills-certificates" class="parallax-title">Skills & Certificates</a>
+    </div>
+    <!-- End of Parallax Separator for Skills and Certificates -->
+
+    <!-- Combined Skills and Certificates Section -->
+    <section id="skills-certificates" class="py-5">
+        <div class="container d-flex flex-column flex-md-row align-items-center">
+            <!-- Left Side: Text Description -->
+            <div class="col-md-6 mb-4 skills-text-section">
+                <div>
+                    <h2 class="text-yellow">I have strong skills in IT management and development.</h2>
+                    <p> 
+                        I focus on creating secure, efficient, and visually appealing solutions. My experience spans front-end development, scripting, cloud security, server administration, and networking. I am dedicated to delivering professional, 
+                        responsive, and versatile solutions that meet the needs of users and organizations.
+                    </p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#certificatesModal">
+                        View Certificates
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Side: Loading Bars -->
+            <div class="col-md-6">
+                <div class="skill-bar">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="skill-title">Scripting</div>
+                        <div class="progress-number">65%</div> <!-- Number next to the title -->
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 0%;" data-value="65%"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="skill-title">Front-End Development</div>
+                        <div class="progress-number">89%</div> <!-- Number next to the title -->
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 0%;" data-value="89%"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="skill-title">Server Administration</div>
+                        <div class="progress-number">86%</div> <!-- Number next to the title -->
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 0%;" data-value="86%"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="skill-title">Networking</div>
+                        <div class="progress-number">78%</div> <!-- Number next to the title -->
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 0%;" data-value="78%"></div>
+                    </div>
+                </div>
+                <div class="skill-bar">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="skill-title">Cloud Security</div>
+                        <div class="progress-number">74%</div> <!-- Number next to the title -->
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 0%;" data-value="74%"></div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- End of Combined Skills and Certificates Section -->
+
+    <!-- Certificates Modal -->
+    <div class="modal fade certificates-modal" id="certificatesModal" tabindex="-1" aria-labelledby="certificatesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificatesModalLabel">My Certifications</h5>
+                </div>
+                    <div class="modal-body certificates-grid">
+                        <div class="row g-4">
+                            <!-- Certificate 1 -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-image-wrapper">
+                                        <img src="certificates/cert-images/cert1.jpg" alt="Cybersecurity Fundamentals" 
+                                            class="certificate-image" 
+                                            data-cert-name="Ethics and Conduct at IOM: The Values We Share"
+                                            data-cert-org="IOM UN Migration"
+                                            data-cert-date="5th of June 2022"
+                                            data-cert-pdf="certificates/cert1.pdf">
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h6>Ethics and Conduct at IOM: The Values We Share</h6>
+                                        <p class="certificate-issuer">Issued by: IOM UN Migration</p>
+                                        <p class="certificate-date">Date: 5th of June 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Certificate 2 -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-image-wrapper">
+                                        <img src="certificates/cert-images/cert2.jpg" alt="Cloud Computing Essentials" 
+                                            class="certificate-image" 
+                                            data-cert-name="PSEA | Prevention of Sexual Exploitation and Abuse | Online ToT"
+                                            data-cert-org="IOM UN Migration"
+                                            data-cert-date="8th of June 2022"
+                                            data-cert-pdf="certificates/cert2.pdf">
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h6>PSEA | Prevention of Sexual Exploitation and Abuse | Online ToT</h6>
+                                        <p class="certificate-issuer">Issued by: IOM UN Migration</p>
+                                        <p class="certificate-date">Date: 8th of June 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Certificate 3 -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-image-wrapper">
+                                        <img src="certificates/cert-images/cert3.jpg" alt="Network Security Professional" 
+                                            class="certificate-image" 
+                                            data-cert-name="IOM Data Protection Principles On-line Training Course"
+                                            data-cert-org="IOM UN Migration"
+                                            data-cert-date="6th of June 2022"
+                                            data-cert-pdf="certificates/cert3.pdf">
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h6>IOM Data Protection Principles On-line Training Course</h6>
+                                        <p class="certificate-issuer">Issued by: IOM UN Migration</p>
+                                        <p class="certificate-date">Date: 6th of June 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Certificate 4 -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-image-wrapper">
+                                        <img src="certificates/cert-images/cert4.jpg" alt="Python Programming" 
+                                            class="certificate-image" 
+                                            data-cert-name="Information Certified Security Awareness"
+                                            data-cert-org="IOM UN Migration"
+                                            data-cert-date=" 8th of June 2022"
+                                            data-cert-pdf="certificates/cert4.pdf">
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h6>Information Certified Security Awareness</h6>
+                                        <p class="certificate-issuer">Issued by: IOM UN Migration</p>
+                                        <p class="certificate-date">Date: July 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Certificate 5 -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-image-wrapper">
+                                        <img src="certificates/cert-images/cert5.jpg" alt="Web Development Bootcamp" 
+                                            class="certificate-image" 
+                                            data-cert-name="I Know Gender: An Introduction to Gender Equality for UN Staff"
+                                            data-cert-org="IOM UN Migration"
+                                            data-cert-date="7th of June 2022"
+                                            data-cert-pdf="certificates/cert5.pdf">
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h6>I Know Gender: An Introduction to Gender Equality for UN Staff</h6>
+                                        <p class="certificate-issuer">Issued by: IOM UN Migration</p>
+                                        <p class="certificate-date">Date: 7th of June 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Certificate 6 -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-image-wrapper">
+                                        <img src="certificates/cert-images/cert6.jpg" alt="Data Analytics Fundamentals" 
+                                            class="certificate-image" 
+                                            data-cert-name="I Know Gender Module 16: Gender Equality and Migration"
+                                            data-cert-org="IOM UN Migration"
+                                            data-cert-date="7th of June 2022"
+                                            data-cert-pdf="certificates/cert6.pdf">
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h6>I Know Gender Module 16: Gender Equality and Migration</h6>
+                                        <p class="certificate-issuer">Issued by: IOM UN Migration</p>
+                                        <p class="certificate-date">Date: 7th of June 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Certificate 7 -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-image-wrapper">
+                                        <img src="certificates/cert-images/cert7.jpg" alt="Machine Learning Basics" 
+                                            class="certificate-image" 
+                                            data-cert-name="BSAFE"
+                                            data-cert-org="UNDSS"
+                                            data-cert-date="4th of June 2022"
+                                            data-cert-pdf="certificates/cert7.pdf">
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h6>BSAFE</h6>
+                                        <p class="certificate-issuer">Issued by: UNDSS</p>
+                                        <p class="certificate-date">Date: 4th of June 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Certificate 8 -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-image-wrapper">
+                                        <img src="certificates/cert-images/cert8.jpg" alt="Agile Project Management" 
+                                            class="certificate-image" 
+                                            data-cert-name="Solving Problems with Critical and Creative Thinking"
+                                            data-cert-org="IBM SkillsBuild"
+                                            data-cert-date="11th of April 2024"
+                                            data-cert-pdf="certificates/cert8.pdf">
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h6>Solving Problems with Critical and Creative Thinking</h6>
+                                        <p class="certificate-issuer">Issued by: IBM SkillsBuild</p>
+                                        <p class="certificate-date">Date: 11th of April 2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Certificate 9 -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="certificate-card">
+                                    <div class="certificate-image-wrapper">
+                                        <img src="certificates/cert-images/cert9.jpg" alt="Cybersecurity Advanced" 
+                                            class="certificate-image" 
+                                            data-cert-name="Red Hat System Administration I (RH124)"
+                                            data-cert-org="Red Hat"
+                                            data-cert-date="22nd of April 2024"
+                                            data-cert-pdf="certificates/cert9.pdf">
+                                    </div>
+                                    <div class="certificate-info">
+                                        <h6>Red Hat System Administration I (RH124)</h6>
+                                        <p class="certificate-issuer">Issued by: Red Hat</p>
+                                        <p class="certificate-date"> Date: 22nd of April 2024</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Certifications Modal -->
+
+    <!-- Parallax Separator for Projects -->
+    <div id="projects-section" class="parallax-separator">
+        <a href="#projects" class="parallax-title">My Projects</a>
+    </div>
+    <!-- End of Parallax Separator for Projects -->
+
+    <!-- Projects -->
+    <section id="projects" class="projects-section bg-dark py-5">
+        <div class="container">
+            <!-- Page 1 -->
+            <div class="projects-grid" id="projectsPage1">
+                <!-- First 3 Projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/slider1.jpg" alt="Cybersecurity Monitoring Platform">
+                    </div>
+                    <div class="project-details">
+                        <h5 class="project-title">Cybersecurity Monitoring Platform</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Python</span>
+                            <span class="badge">Flask</span>
+                            <span class="badge">Wireshark</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal1">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/slider1.jpg" alt="ML Movie Recommender System">
+                    </div>
+                    <div class="project-details">
+                        <h5 class="project-title">ML Movie Recommender System</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Python</span>
+                            <span class="badge">TensorFlow</span>
+                            <span class="badge">Scikit-learn</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal2">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/slider1.jpg" alt="Cloud Infrastructure Automation">
+                    </div>
+                    <div class="project-details">
+                        <h5 class="project-title">Cloud Infrastructure Automation</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Terraform</span>
+                            <span class="badge">AWS</span>
+                            <span class="badge">Docker</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal3">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2 -->
+            <div class="projects-grid" id="projectsPage2" style="display: none;">
+                <!-- Next 3 Projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/network-simulator.jpg" alt="Enterprise Network Simulator">
+                    </div>
+                    <div class="project-details">
+                        <h5 class="project-title">Enterprise Network Simulator</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Cisco Packet Tracer</span>
+                            <span class="badge">OSPF</span>
+                            <span class="badge">Network Design</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal4">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/data-analytics-dashboard.jpg" alt="Business Intelligence Dashboard">
+                    </div>
+                    <div class="project-details">
+                        <h5 class="project-title">Business Intelligence Dashboard</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Python</span>
+                            <span class="badge">Pandas</span>
+                            <span class="badge">Tableau</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal5">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/full-stack-ecommerce.jpg" alt="Full-Stack E-commerce Platform">
+                    </div>
+                    <div class="project-details">
+                        <h5 class="project-title">Full-Stack E-commerce Platform</h5>
+                        <div class="tech-stack">
+                            <span class="badge">React</span>
+                            <span class="badge">Node.js</span>
+                            <span class="badge">MongoDB</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal6">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 3 -->
+            <div class="projects-grid" id="projectsPage3" style="display: none;">
+                <!-- Final 3 Projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/mobile-health-app.jpg" alt="Health Tracking Mobile App">
+                    </div>
+                    <div class="project-details">
+                        <h5 class="project-title">Health Tracking Mobile App</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Flutter</span>
+                            <span class="badge">Firebase</span>
+                            <span class="badge">Dart</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal7">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/iot-smart-home.jpg" alt="IoT Smart Home System">
+                    </div>
+                    <div class="project-details">
+                        <h5 class="project-title">IoT Smart Home System</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Arduino</span>
+                            <span class="badge">Raspberry Pi</span>
+                            <span class="badge">MQTT</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal8">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/ar-vr-experience.jpg" alt="AR/VR Experience">
+                    </div>
+                    <div class="project-details">
+                        <h5 class="project-title">AR/VR Experience</h5>
+                        <div class="tech-stack">
+                            <span class="badge">Unity</span>
+                            <span class="badge">C#</span>
+                            <span class="badge">ARKit</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#projectModal9">
+                    View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Updated Pagination Controls -->
+            <div class="pagination-controls text-center mt-4 d-flex justify-content-center align-items-center">
+                <button id="prevPage" class="btn btn-secondary me-3" onclick="changePage(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="page-indicators d-flex">
+                    <span class="page-indicator active" data-page="1"></span>
+                    <span class="page-indicator" data-page="2"></span>
+                    <span class="page-indicator" data-page="3"></span>
+                </div>
+                
+                <button id="nextPage" class="btn btn-secondary ms-3" onclick="changePage(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- End of Projects -->
+
+    <!-- Modals for Projects -->
+    <!-- Cybersecurity Monitoring Platform Modal -->
+    <div class="modal fade" id="projectModal1" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cybersecurity Monitoring Platform</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/slider1.jpg" class="img-fluid mb-3" alt="Project Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Project Overview</h4>
+                            <p>A comprehensive cybersecurity monitoring platform developed to track and analyze network traffic in real-time, providing advanced threat detection and network security insights.</p>
+                            <h5 class="mt-3">Technologies Used</h5>
+                            <div class="tech-stack">
+                                <span class="badge">Python</span>
+                                <span class="badge">Flask</span>
+                                <span class="badge">Wireshark</span>
+                                <span class="badge">Network Security</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details mt-4">
+                        <h5>Project Highlights</h5>
+                        <ul>
+                            <li>Real-time network traffic analysis</li>
+                            <li>Advanced threat detection mechanisms</li>
+                            <li>Comprehensive logging and reporting system</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ML Movie Recommender System Modal -->
+    <div class="modal fade" id="projectModal2" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ML Movie Recommender System</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/slider1.jpg" class="img-fluid mb-3" alt="Project Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Project Overview</h4>
+                            <p>An intelligent movie recommendation system using machine learning algorithms to provide personalized movie suggestions based on user preferences and viewing history.</p>
+                            <h5 class="mt-3">Technologies Used</h5>
+                            <div class="tech-stack">
+                                <span class="badge">Python</span>
+                                <span class="badge">TensorFlow</span>
+                                <span class="badge">Scikit-learn</span>
+                                <span class="badge">Machine Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details mt-4">
+                        <h5>Project Highlights</h5>
+                        <ul>
+                            <li>Personalized movie recommendations</li>
+                            <li>Advanced collaborative filtering</li>
+                            <li>User preference analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cloud Infrastructure Automation Modal -->
+    <div class="modal fade" id="projectModal3" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cloud Infrastructure Automation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/slider1.jpg" class="img-fluid mb-3" alt="Project Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Project Overview</h4>
+                            <p>A comprehensive cloud infrastructure automation project using Terraform to deploy and manage scalable, secure, and efficient cloud resources on AWS.</p>
+                            <h5 class="mt-3">Technologies Used</h5>
+                            <div class="tech-stack">
+                                <span class="badge">Terraform</span>
+                                <span class="badge">AWS</span>
+                                <span class="badge">Docker</span>
+                                <span class="badge">Cloud Computing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details mt-4">
+                        <h5>Project Highlights</h5>
+                        <ul>
+                            <li>Automated cloud resource provisioning</li>
+                            <li>Infrastructure as Code (IaC) implementation</li>
+                            <li>Scalable and reproducible infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enterprise Network Simulator Modal -->
+    <div class="modal fade" id="projectModal4" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Enterprise Network Simulator</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/network-simulator.jpg" class="img-fluid mb-3" alt="Project Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Project Overview</h4>
+                            <p>A comprehensive network simulation project designed to model complex enterprise network architectures and test routing protocols.</p>
+                            <h5 class="mt-3">Technologies Used</h5>
+                            <div class="tech-stack">
+                                <span class="badge">Cisco Packet Tracer</span>
+                                <span class="badge">OSPF</span>
+                                <span class="badge">Network Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details mt-4">
+                        <h5>Project Highlights</h5>
+                        <ul>
+                            <li>Advanced network topology design</li>
+                            <li>Protocol routing simulation</li>
+                            <li>Performance analysis and optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- E-commerce Web Application Modal -->
+    <div class="modal fade" id="projectModal5" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">E-commerce Web Application</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/ecommerce.jpg" class="img-fluid mb-3" alt="Project Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Project Overview</h4>
+                            <p>A full-featured e-commerce web application that allows users to browse products, manage their shopping cart, and complete purchases securely.</p>
+                            <h5 class="mt-3">Technologies Used</h5>
+                            <div class="tech-stack">
+                                <span class="badge">React</span>
+                                <span class="badge">Node.js</span>
+                                <span class="badge">MongoDB</span>
+                                <span class="badge">Express</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details mt-4">
+                        <h5>Project Highlights</h5>
+                        <ul>
+                            <li>User authentication and authorization</li>
+                            <li>Product search and filtering</li>
+                            <li>Secure payment processing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Personal Finance Tracker Modal -->
+    <div class="modal fade" id="projectModal6" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Personal Finance Tracker</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/finance-tracker.jpg" class="img-fluid mb-3" alt="Project Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Project Overview</h4>
+                            <p>A personal finance tracking application that helps users manage their expenses, set budgets, and visualize their financial health over time.</p>
+                            <h5 class="mt-3">Technologies Used</h5>
+                            <div class="tech-stack">
+                                <span class="badge">Vue.js</span>
+                                <span class="badge">Firebase</span>
+                                <span class="badge">Chart.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details mt-4">
+                        <h5>Project Highlights</h5>
+                        <ul>
+                            <li>Expense tracking and categorization</li>
+                            <li>Budget setting and alerts</li>
+                            <li>Data visualization with charts</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fitness Tracker Application Modal -->
+    <div class="modal fade" id="projectModal7" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Fitness Tracker Application</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/fitness-tracker.jpg" class="img-fluid mb-3" alt="Project Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Project Overview</h4>
+                            <p>A fitness tracking application that allows users to log workouts, track progress, and set fitness goals to improve their health and wellness.</p>
+                            <h5 class="mt-3">Technologies Used</h5>
+                            <div class="tech-stack">
+                                <span class="badge">React Native</span>
+                                <span class="badge">Node.js</span>
+                                <span class="badge">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details mt-4">
+                        <h5>Project Highlights</h5>
+                        <ul>
+                            <li>Workout logging and tracking</li>
+                            <li>Progress visualization with graphs</li>
+                            <li>Goal setting and reminders</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe Management System Modal -->
+    <div class="modal fade" id="projectModal8" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Recipe Management System</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/recipe-management.jpg" class="img-fluid mb-3" alt="Project Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Project Overview</h4>
+                            <p>A recipe management system that allows users to create, share, and discover recipes while managing their cooking preferences and dietary restrictions.</p>
+                            <h5 class="mt-3">Technologies Used</h5>
+                            <div class="tech-stack">
+                                <span class="badge">Angular</span>
+                                <span class="badge">Firebase</span>
+                                <span class="badge">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details mt-4">
+                        <h5>Project Highlights</h5>
+                        <ul>
+                            <li>Recipe creation and sharing</li>
+                            <li>Search and filter recipes</li>
+                            <li>User profiles and preferences</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Travel Planning Application Modal -->
+    <div class="modal fade" id="projectModal9" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Travel Planning Application</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/travel-planner.jpg" class="img-fluid mb-3" alt="Project Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Project Overview</h4>
+                            <p>A travel planning application that helps users organize their trips, manage itineraries, and discover attractions based on their preferences.</p <h5 class="mt-3">Technologies Used</h5>
+                            <div class="tech-stack">
+                                <span class="badge">React</span>
+                                <span class="badge">Node.js</span>
+                                <span class="badge">MongoDB</span>
+                                <span class="badge">Express</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-details mt-4">
+                        <h5>Project Highlights</h5>
+                        <ul>
+                            <li>Itinerary management and organization</li>
+                            <li>Attraction discovery based on user preferences</li>
+                            <li>Collaboration features for group travel planning</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View Repository
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Modals for Projects -->
+
+    <!-- Parallax Separator for Education & Work Experience-->
+    <div id="education-work-section" class="parallax-separator">
+        <a href="#education" class="parallax-title">Education & Work Experience</a>
+    </div>
+    <!-- End of Parallax Separator for Education & Work Experience-->
+
+    <!-- Education & Work Experience -->
+    <section id="education" class="education-work-section bg-dark">
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <!-- Latest Education Entry -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-content-details">
+                        <div class="year">2020 - Present</div>
+                        <div class="circle-image">
+                            <img src="images/timeline/TUD.png" alt="TU Dublin Logo">
+                        </div>
+                        <h3>Technological University Dublin</h3>
+                        <p>BSc (Hons) in Computing with IT Management</p>
+                        <p>Started 4th Year, Bachelor honours. 2024 - ongoing.</p>
+                        <p>Technological University Dublin (TU Dublin) Tallaght Campus offers a Bachelor of Science (Honours) in Computing with Information Technology Management.</p>
+                        <p>This program is designed to equip students with the necessary skills and knowledge to thrive in the rapidly evolving field of information technology.</p>
+                        <div class="timeline-buttons">
+                            <a href="https://www.tudublin.ie" target="_blank" class="btn">University Website</a>
+                            <button class="btn" data-bs-toggle="modal" data-bs-target="#tudublinResultsModal">View Results</button>
+                            <button class="btn" data-bs-toggle="modal" data-bs-target="#tudublinLocationModal">Location</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Previous Education Entry -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-content-details">
+                        <div class="year">2017 - 2020</div>
+                        <div class="circle-image">
+                            <img src="images/timeline/STMC.jpg" alt="St. Michael's College Logo">
+                        </div>
+                        <h3>St. Michael's College, Dublin</h3>
+                        <p>St. Michael's College, located on Ailesbury Road in Dublin 4, Ireland, is a prominent voluntary Catholic boys' school established in 1944.</p>
+                        <p>It is affiliated with the Congregation of the Holy Spirit (the Spiritans) and serves students from primary through secondary levels.</p>
+                        <div class="timeline-buttons">
+                            <a href="https://www.stmichaelscollege.ie" target="_blank" class="btn">School Website</a>
+                            <button class="btn" data-bs-toggle="modal" data-bs-target="#stmcLocationModal">Location</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work Experience Entry -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-content-details">
+                        <div class="year">June 2022 - September 2022</div>
+                        <div class="circle-image">
+                            <img src="images/timeline/IOM.png" alt="IOM Logo">
+                        </div>
+                        <h3>International Organization for Migration (IOM)</h3>
+                        <p>Migrant Service Assistant</p>
+                        <p>Provided migrant service to applicants, provided migrants with accurate information, organized the files of the 
+                            applicants in the required order in full compliance with the IOM Service Standards, maintained high level of 
+                            accuracy of data capture, informed management of any problems or issues immediately while regularly suggesting 
+                            how to improve efficiency and service, performed other duties. </p>
+                        <div class="timeline-buttons">
+                            <a href="https://www.iom.int" target="_blank" class="btn">Organization Website</a>
+                            <button class="btn" data-bs-toggle="modal" data-bs-target="#iomLocationModal">Location</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Election Commission Entry -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-content-details">
+                        <div class="year">March 2019 - April 2019</div>
+                        <div class="circle-image">
+                            <img src="images/timeline/Central_Election_Commission_of_Ukraine.png" alt="Election Commission Logo">
+                        </div>
+                        <h3>Precinct Election Commission</h3>
+                        <p>Member of the Election Commission for the President of Ukraine</p>
+                        <p>Participated in organizing and providing the Election of the President of Ukraine in a free, fair, and transparent 
+                            manner, in accordance with the Law of Ukraine "On Election of the President of Ukraine".</p>
+                        <p>Registered voters and issued ballots. Conducted the voting process and counted the votes. Compiled and submitted the election results 
+                            to the Central Election Commission of Ukraine. </p>
+                        <div class="timeline-buttons">
+                            <a href="https://cvk.gov.ua/en/" target="_blank" class="btn">Commission Website</a>
+                            <button class="btn" data-bs-toggle="modal" data-bs-target="#ukraineEmbassyLocationModal">Location</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Education Entry -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-content-details">
+                        <div class="year">2011 - 2018</div>
+                        <div class="circle-image">
+                            <img src="images/timeline/premier.png" alt="Himnaziya Prem'yer Kyiv Logo">
+                        </div>
+                        <h3>Himnaziya Prem'yer Kyiv</h3>
+                        <p>Ukrainian School</p>
+                        <p>A specialized educational institution that focuses on providing a high-quality secondary education.</p>
+                        <div class="timeline-buttons">
+                            <a href="http://www.gymnasium-premier.com.ua" target="_blank" class="btn">School Website</a>
+                            <button class="btn" data-bs-toggle="modal" data-bs-target="#himnaziiaLocationModal">Location</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Education & Work Experience -->
+
+    <!-- TU Dublin Results Modal -->
+    <div class="modal fade tu-dublin-results-modal" id="tudublinResultsModal" tabindex="-1" aria-labelledby="tudublinResultsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tudublinResultsModalLabel">TU Dublin Academic Results</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="results-section">
+                        <h4>4th Year Modules (2024 - Ongoing)</h4>
+                        <p>Results not yet available</p>
+
+                        <h4>3rd Year Modules (2023)</h4>
+                        <ul>
+                            <li>
+                                <span class="module-name">AS Experiential Learning</span>
+                                <span class="grade grade-PS">PS</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Server-side Web Development</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Operating Systems</span>
+                                <span class="grade grade-B-minus">B-</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Cloud Services & Distributed Computing</span>
+                                <span class="grade grade-B-minus">B-</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Big Data Technologies</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Data Analysis</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Advanced Routing & Switching</span>
+                                <span class="grade grade-C-plus">C+</span>
+                            </li>
+                        </ul>
+
+                        <h4>2nd Year Modules (2021)</h4>
+                        <ul>
+                            <li>
+                                <span class="module-name">IT Scripting & Automation</span>
+                                <span class="grade grade-B-minus">B-</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Client-side Web Development</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Discrete Mathematics 2</span>
+                                <span class="grade grade-C-plus">C+</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Advanced Database Technologies</span>
+                                <span class="grade grade-B-plus">B+</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Network Fundamentals</span>
+                                <span class="grade grade-C-plus">C+</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Software Quality Assurance & Testing</span>
+                                <span class="grade grade-C">C</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Project</span>
+                                <span class="grade grade-B-plus">B+</span>
+                            </li>
+                            <li>
+                                <span class="module-name">IT Services Management</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Information Security</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Database Admin & Analysis</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Management Science</span>
+                                <span class="grade grade-C">C</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Routing & Switching Essentials</span>
+                                <span class="grade grade-B-plus">B+</span>
+                            </li>
+                        </ul>
+
+                        <h4>1st Year Modules (2020)</h4>
+                        <ul>
+                            <li>
+                                <span class="module-name">Critical Skills Development</span>
+                                <span class="grade grade-B-minus">B-</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Discrete Mathematics 1</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Business & Information Systems</span>
+                                <span class="grade grade-B-plus">B+</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Visual Design & User Experience</span>
+                                <span class="grade grade-B-plus">B+</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Computer Architecture</span>
+                                <span class="grade grade-B-plus">B+</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Software Development 1</span>
+                                <span class="grade grade-C">C</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Operating Systems Fundamentals</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Database Fundamentals</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Statistics</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Social Media Communications</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Systems Analysis</span>
+                                <span class="grade grade-B">B</span>
+                            </li>
+                            <li>
+                                <span class="module-name">Software Development 2</span>
+                                <span class="grade grade-D">D</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of TU Dublin Results Modal -->
+
+    <!-- Location Modals -->
+    <!-- TU Dublin Location Modal -->
+    <div class="modal fade timeline-location-modal" id="tudublinLocationModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Technological University Dublin Location</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="tudublinMap" class="timeline-google-map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- St. Michael's College Location Modal -->
+        <div class="modal fade timeline-location-modal" id="stmcLocationModal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">St. Michael's College Location</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="stmcMap" class="timeline-google-map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IOM Location Modal -->
+        <div class="modal fade timeline-location-modal" id="iomLocationModal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">International Organization for Migration Location</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="iomMap" class="timeline-google-map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ukraine Embassy Location Modal -->
+        <div class="modal fade timeline-location-modal" id="ukraineEmbassyLocationModal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ukraine Embassy Location</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="ukraineEmbassyMap" class="timeline-google-map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Himnaziya Prem'yer Kyiv Location Modal -->
+        <div class="modal fade timeline-location-modal" id="himnaziiaLocationModal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Himnaziya Prem'yer Kyiv Location</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="himnaziiaMap" class="timeline-google-map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- End of Location Modals -->
+
+    <!-- Parallax Separator for Footer -->
+    <div id="contact-footer" class="parallax-separator footer-parallax">
+        <a href="#contact" class="parallax-title">Get In Touch</a>
+    </div>
+    <!-- End of Parallax Separator for Footer -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section bg-dark py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 contact-info-column">
+                    <h2 class="section-title text-light mb-4">Contact Information</h2>
+                    <div class="contact-details">
+                        <div class="contact-item mb-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="contact-text">
+                                <h5>Email</h5>
+                                <p>mykhailo.trush@email.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item mb-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <div class="contact-text">
+                                <h5>Phone</h5>
+                                <p>+353 123 456 7890</p>
+                            </div>
+                        </div>
+                        <div class="contact-item mb-3">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <div class="contact-text">
+                                <h5>Location</h5>
+                                <p>Dublin, Ireland</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links mt-4">
+                        <a href="https://github.com" target="_blank" class="social-icon github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 contact-form-column">
+                    <h2 class="section-title text-light mb-4">Send Me a Message</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group mb-3">
+                            <div class="input-wrapper">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <div class="input-wrapper">
+                                <i class="fas fa-comment input-icon"></i>
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-submit w-100">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Contact Section -->
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-center text-white py-3">
+        <div class="container">
+            <p class="mb-0">© 2024 Mykhailo Trush. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <!-- End of Back to Top Button -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/NavbarMenu.js" defer></script>
+    <script src="scripts/HeroSection.js" defer></script>
+    <script src="scripts/Contact.js" defer></script>
+    <script src="scripts/AboutMe.js" defer></script>
+    <script src="scripts/Certificates.js" defer></script>
+    <script src="scripts/Bar&Numbers.js" defer></script>
+    <script src="scripts/SkillsLS.js" defer></script>
+    <script src="scripts/Projects.js" defer></script>
+    <script src="scripts/ProjectPages.js" defer></script>
+    <script src="scripts/Education&Work.js" defer></script>
+    <script src="scripts/TimelineGoogleMap.js" defer></script>
+    <script src="scripts/BackToTop.js" defer></script>
+    <script src="scripts/MusicModal.js" defer></script>
+    <!-- Google Maps Script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA30-IEvJZI2OPQy62H73P0L5bplT1X4WA&libraries=marker" async defer></script>
+</body>
+</html>

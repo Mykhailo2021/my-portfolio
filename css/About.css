@@ -1,0 +1,76 @@
+/* About Me Section Styles */
+.about-section {
+  opacity: 0; /* Start hidden */
+  transform: translateY(50px); /* Start slightly below the viewport */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* Adjusted duration for a faster transition */
+  background-color: #222; /* Dark background to match the body */
+}
+
+.about-section.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to original position */
+}
+
+.about-img {
+  width: 180px; /* Width of the profile image */
+  height: 200px; /* Height of the profile image */
+  border: 3px solid #6c9eed; /* Border around the image */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  border-radius: 50%; /* Make the image circular */
+}
+
+.about-content h2 {
+  font-size: 2.5rem; /* Font size for the heading */
+  margin-bottom: 1rem; /* Space below the heading */
+  text-align: left; /* Align heading to the left */
+}
+
+.about-content p {
+  font-size: 1.2rem; /* Font size for paragraph text */
+  line-height: 1.8; /* Line height for better readability */
+  margin-bottom: 1rem; /* Space below the paragraph */
+  text-align: justify; /* Justify text for a cleaner look */
+}
+
+.social-icons {
+  margin-top: 10px; /* Space above social icons */
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: center; /* Center the icons */
+}
+
+.social-icons a {
+  color: #007bff; /* Blue color for icons */
+  margin: 0 10px; /* Space between icons */
+  font-size: 1.2rem; /* Decreased size for icons */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.social-icons a:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+.about-buttons .btn {
+  padding: 0.8rem 1.5rem; /* Padding for buttons */
+  font-size: 1rem; /* Font size for buttons */
+  margin-right: 1rem; /* Space between buttons */
+  border-radius: 5px; /* Rounded corners for buttons */
+}
+
+.about-buttons .btn-primary {
+  background-color: #007bff; /* Primary button color */
+  color: #fff; /* White text color */
+}
+
+.about-buttons .btn-primary:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.about-buttons .btn-outline-primary {
+  border-color: #007bff; /* Outline button border color */
+  color: #007bff; /* Outline button text color */
+}
+
+.about-buttons .btn-outline-primary:hover {
+  background-color: #007bff; /* Background color on hover */
+  color: #fff; /* Text color on hover */
+}

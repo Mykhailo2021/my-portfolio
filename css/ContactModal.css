@@ -1,0 +1,39 @@
+/* Contact Modal Styles */
+.modal {
+    opacity: 0; /* Start with the modal invisible */
+    transition: opacity 1s ease; /* Transition for opacity */
+}
+
+.modal.show {
+    opacity: 1; /* Fully visible when the modal is shown */
+}
+
+.modal-content {
+    border-radius: 10px; /* Rounded corners for modal */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    background-color: #343a40; /* Dark grey background color */
+    color: #ffffff; /* White text color for better contrast */
+}
+
+.modal-header {
+    background-color: #495057; /* Slightly lighter dark background for header */
+    color: #ffffff; /* White text color */
+}
+
+.modal-title {
+    font-weight: bold; /* Bold title */
+}
+
+.modal-footer {
+    background-color: #495057; /* Slightly lighter dark background for footer */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border: none; /* Remove border */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}

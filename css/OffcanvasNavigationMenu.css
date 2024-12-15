@@ -1,0 +1,57 @@
+.offcanvas-menu {
+    position: fixed; /* Position fixed for overlay */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    background-color: #343a40; /* Dark background for offcanvas */
+    width: 250px; /* Fixed width */
+    height: 100vh; /* Full height */
+    z-index: 1000; /* Ensure it appears above other content */
+    transform: translateX(-100%); /* Initially, slide it out of view to the left */
+    transition: transform 0.3s ease; /* Smooth transition for the transform property */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+}
+
+.offcanvas-menu.active {
+    transform: translateX(0); /* Slide it into view when active */
+}
+
+.offcanvas-header {
+    position: relative; /* Set position to relative for absolute positioning of the close button */
+    padding: 20px; /* Keep padding for the header */
+    display: flex; /* Flexbox for header */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 20px; /* Space below header */
+}
+
+.offcanvas-title {
+    font-weight: bold; /* Bold title */
+    color: #ffffff; /* White color for title */
+}
+
+.offcanvas-body {
+    padding: 0; /* Remove padding from the body to allow full-width links */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.nav {
+    flex-grow: 1; /* Allow nav to take remaining space */
+    display: flex; /* Ensure nav uses flexbox */
+    flex-direction: column; /* Stack nav items vertically */
+}
+
+.nav-link {
+    color: #ffffff; /* Default text color */
+    text-decoration: none; /* Remove underline */
+    padding: 15px 20px; /* Padding for links */
+    display: block; /* Make links block elements */
+    width: 100%; /* Ensure links take full width */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    margin-bottom: 5px; /* Add margin below each link for spacing */
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for links */
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Change background on hover */
+    color: #ffcc00; /* Change text color on hover */
+}

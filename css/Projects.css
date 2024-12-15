@@ -1,0 +1,241 @@
+.projects-section {
+  background-color: #121212;
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 100px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  transition: all 0.5s ease;
+  width: 100%;
+}
+
+@keyframes gridTransition {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projects-grid.fade-in {
+  animation: gridTransition 0.5s forwards;
+}
+
+.projects-grid.fade-out {
+  animation: gridTransition 0.5s forwards reverse;
+}
+
+.project-card {
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+    box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+.project-image {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image::before {
+  opacity: 1;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1);
+}
+
+.project-details {
+  padding: 25px;
+  text-align: center;
+  position: relative;
+}
+
+.project-title {
+  color: #ffcc00;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.tech-stack .badge {
+  background-color: rgba(255,255,255,0.1);
+  color: #ffffff;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255,204,0,0.2);
+}
+
+.project-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* For project grid buttons */
+.project-actions .btn {
+  width: 100%;
+  max-width: 200px;
+  background-color: #444; /* Grey background */
+  color: #ffcc00; /* Yellow text */
+  border: 1px solid #555; /* Slightly lighter border */
+  transition: all 0.3s ease;
+}
+
+.project-actions .btn:hover {
+  background-color: #555; /* Slightly lighter grey on hover */
+  color: #ffcc00; /* Black text on hover */
+  border-color: #ffcc00; /* Yellow border on hover */
+}
+
+/* For modal buttons */
+.modal[id^="projectModal"] .btn-secondary {
+  background-color: #444; /* Grey background */
+  color: #ffcc00; /* Yellow text */
+  border: 1px solid #555; /* Slightly lighter border */
+  transition: all 0.3s ease;
+}
+
+.modal[id^="projectModal"] .btn-secondary:hover {
+  background-color: #555; /* Slightly lighter grey on hover */
+  color: #ffcc00; /* Black text on hover */
+  border-color: #ffcc00; /* Yellow border on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.modal[id^="projectModal"] .btn-secondary i {
+  color: #ffcc00; /* Yellow icon color */
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.pagination-controls .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: 
+    background-color 0.3s ease, 
+    transform 0.2s ease;
+}
+
+.pagination-controls .btn:hover {
+  background-color: rgba(255,255,255,0.2);
+  transform: scale(1.1);
+}
+
+.pagination-controls .btn i {
+  font-size: 1.2rem;
+}
+
+.page-indicators {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 20px;
+}
+
+.page-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-indicator.active {
+  width: 16px;
+  height: 16px;
+  background-color: #ffcc00;
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.3);
+}
+
+.page-indicator:hover {
+  background-color: rgba(255,255,255,0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+.projects-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.projects-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

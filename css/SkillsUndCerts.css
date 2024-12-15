@@ -1,0 +1,98 @@
+/* Container for the Skills and Certificates section */
+#skills-certificates {
+  padding: 40px 0; /* Add padding for top and bottom */
+}
+
+.skills-text-section {
+  opacity: 0; /* Start hidden */
+  transform: translateY(50px); /* Start slightly below the viewport */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* Adjusted duration for a smoother transition */
+}
+
+.skills-text-section.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to original position */
+}
+
+/* Ensure the left section is centered vertically */
+.d-flex.align-items-center {
+  height: 100%; /* Full height of the parent container */
+}
+
+.text-yellow {
+  color: #ffcc00; /* Yellow color */
+}
+
+/* Left Side: Text Description */
+.col-md-6.mb-4 {
+  max-height: 100%; /* Prevent crossing into the right section */
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  padding-right: 80px; /* Increase padding to the right for more space */
+  margin-top: 20px; /* Add margin to the top for spacing */
+  text-align: center; /* Center text alignment */
+}
+
+/* Right Side: Loading Bars */
+.col-md-6 {
+  padding-left: 80px; /* Increase padding to the left for more space */
+}
+
+/* Style for the left text description */
+.mb-4 {
+  margin-bottom: 20px; /* Adjust as needed */
+  font-size: 1.2rem; /* Increase font size for better readability */
+}
+
+/* Adjust the paragraph text size */
+.about-content p {
+  font-size: 1.2rem; /* Increase font size for paragraph text */
+  line-height: 1.6; /* Increase line height for better spacing */
+  margin-top: 10px; /* Add margin to the top for spacing */
+}
+
+/* Style for each skill bar */
+.skill-bar {
+  margin-bottom: 35px; /* Add space below each skill bar */
+}
+
+/* Style for the skill title */
+.skill-title {
+  font-weight: bold; /* Make the skill title bold */
+  margin-bottom: 0; /* Remove space below the title */
+}
+
+/* Style for the number next to the progress bar */
+.progress-number {
+  font-size: 0.9rem; /* Adjust font size for the number */
+  margin-left: 10px; /* Optional: Add some space between title and number */
+}
+
+.progress-bar {
+  transition: width 2s cubic-bezier(0.65, 0, 0.35, 1);
+  background-image: linear-gradient(to right, #f00 0%, #0f0 100%);
+}
+
+/* Progress bar styles */
+.progress {
+  background-color: #e0e0e0; /* Light grey background for the progress bar */
+  border-radius: 5px; /* Rounded corners */
+  height: 20px; /* Set a smaller height for the progress bar */
+  margin-top: 5px; /* Space between skill title/number and progress bar */
+}
+
+/* Button styles for View Certificates */
+.btn-primary {
+  background-color: #007bff; /* Primary button color */
+  border: none; /* Remove border */
+  transition: background-color 0.3s; /* Smooth transition */
+  padding: 12px 24px; /* Increase padding for a larger button */
+  font-size: 1.2rem; /* Increase font size for better visibility */
+  border-radius: 8px; /* Increase border radius for rounded corners */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
